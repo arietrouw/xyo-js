@@ -1,5 +1,5 @@
 import XyoPluginProviders from './XyoPluginProviders'
 
-export * from '@xyo-network/base-js'
+export * from '@xyo-network/sdk-base-js'
 
 export { XyoPluginProviders }

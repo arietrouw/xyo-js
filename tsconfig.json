@@ -18,6 +18,7 @@
     "sourceMap": true,
     "composite": true,
     "declarationMap": true,
-    "declaration": true
+    "declaration": true,
+    "baseUrl": "."
   }
 }

@@ -5,5 +5,6 @@
     "composite": true,
     "baseUrl": "src"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "references": [{ "path": "../core-js" }, { "path": "../base-nodejs" }, { "path": "../base-js" }]
 }

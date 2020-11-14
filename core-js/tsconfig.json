@@ -6,5 +6,6 @@
     "baseUrl": "src",
     "outDir": "out/spec"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "references": [{ "path": "../base-js" }]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/base-node",
+  "name": "@xyo-network/sdk-base-nodejs",
   "version": "4.0.0",
   "engines": {
     "node": ">=12.0.0"

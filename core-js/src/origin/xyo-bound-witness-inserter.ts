@@ -1,4 +1,4 @@
-import { XyoBase } from '@xyo-network/base-node'
+import { XyoBase } from '@xyo-network/sdk-base-nodejs'
 import bs58 from 'bs58'
 
 import { XyoBoundWitness } from '../bound-witness'

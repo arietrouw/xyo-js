@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/cli",
+  "name": "@xyo-network/cli-nodejs",
   "version": "4.0.0",
   "engines": {
     "node": ">=12.0.0"
@@ -9,7 +9,29 @@
   "files": [
     "./build/**.*"
   ],
-  "dependencies": {},
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@xyo-network/sdk-archivist-nodejs": "^0.13.3",
+    "@xyo-network/sdk-base-nodejs": "^0.7.6",
+    "@xyo-network/sdk-core-nodejs": "^0.71.4",
+    "apollo-server": "2.19.0",
+    "apollo-server-express": "^2.5.0",
+    "bs58": "^4.0.1",
+    "commander": "^6.2.0",
+    "dotenv-expand": "^5.1.0",
+    "enquirer": "^2.3.5",
+    "express": "^4.17.0",
+    "forever": "^3.0.0",
+    "fs-extra": "^9.0.1",
+    "global-modules": "^2.0.0",
+    "graphql": "^15.4.0",
+    "graphql-type-json": "^0.3.1",
+    "shelljs": "^0.8.3",
+    "snyk": "^1.335.0",
+    "tar": "^6.0.1",
+    "tar-fs": "^2.0.0",
+    "tar-stream": "^2.1.0"
+  },
   "scripts": {
     "build": "tsc && yarn lint",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
@@ -18,6 +40,19 @@
     "reinstall": "rm -r -f ./node_modules && rm -f ./yarn.lock && rm -f ./yarn-error.log && yarn install && yarn outdated"
   },
   "devDependencies": {
+    "@types/bs58": "^4.0.0",
+    "@types/elliptic": "^6.4.7",
+    "@types/fs-extra": "^9.0.4",
+    "@types/global-modules": "^2.0.0",
+    "@types/graphql-type-json": "^0.3.2",
+    "@types/jest": "^26.0.15",
+    "@types/joi": "^14.3.1",
+    "@types/js-yaml": "^3.12.0",
+    "@types/lodash": "^4.14.126",
+    "@types/node": "^14.14.7",
+    "@types/tar": "^4.0.0",
+    "@types/tar-fs": "^2.0.0",
+    "@types/tar-stream": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "ethers": "^5.0.19",
@@ -29,6 +64,9 @@
     "eslint-plugin-react": "^7.21.4",
     "eslint-plugin-sort-keys-fix": "^1.1.1",
     "eslint-plugin-workspaces": "^0.6.0",
+    "eslint-plugin-no-secrets": "^0.6.8",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "eslint-plugin-sort-export-all": "^1.0.5",
     "prettier": "^2.1.2",
     "typescript": "~4.0.2"
   }
