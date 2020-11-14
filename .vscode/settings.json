@@ -1,0 +1,12 @@
+{
+  "solidity.linter": "solium",
+  "solidity.soliumRules": {
+    "security/no-block-members": "off"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  }
+}

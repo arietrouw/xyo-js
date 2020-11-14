@@ -1,0 +1,38 @@
+{
+  "name": "@xyo-network/base-node",
+  "version": "4.0.0",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "license": "GPL-3.0",
+  "main": "./build/src/index.js",
+  "types": "./build/src/index.d.js",
+  "files": [
+    "./build/**.*"
+  ],
+  "dependencies": {
+    "winston": "^3.3.3"
+  },
+  "scripts": {
+    "build": "tsc && yarn lint",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
+    "clean": "rm -r -f ./build && rm -r -f ./node_modules",
+    "reinstall": "rm -r -f ./node_modules && rm -f ./yarn.lock && rm -f ./yarn-error.log && yarn install && yarn outdated"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-json": "^2.1.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "eslint-plugin-workspaces": "^0.6.0",
+    "ethers": "^5.0.19",
+    "prettier": "^2.1.2",
+    "typescript": "~4.0.2"
+  }
+}

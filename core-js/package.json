@@ -1,0 +1,45 @@
+{
+  "name": "@xyo-network/core-js",
+  "version": "4.0.0",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "license": "GPL-3.0",
+  "main": "./build/src/index.js",
+  "types": "./build/src/index.d.js",
+  "files": [
+    "./build/**.*"
+  ],
+  "dependencies": {
+    "bs58": "4.0.1",
+    "delay": "^4.4.0",
+    "elliptic": "^6.5.3"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && yarn lint",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
+    "clean": "rm -r -f ./build && rm -r -f ./node_modules",
+    "test": "yarn licensecheck && export NODE_ENV=test && yarn jest --no-cache --forceExit --coverage --verbose false --detectOpenHandles",
+    "reinstall": "rm -r -f ./node_modules && rm -f ./yarn.lock && rm -f ./yarn-error.log && yarn install && yarn outdated"
+  },
+  "devDependencies": {
+    "@types/bs58": "^4.0.1",
+    "@types/elliptic": "^6.4.8",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-json": "^2.1.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "eslint-plugin-workspaces": "^0.6.0",
+    "ethers": "^5.0.19",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.4",
+    "typescript": "~4.0.2"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": "src",
+    "outDir": "out/spec"
+  },
+  "include": ["src/**/*.ts"]
+}

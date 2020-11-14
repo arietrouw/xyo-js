@@ -1,0 +1,64 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": ["node_modules/", "build/", "dist/"],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "import",
+    "sort-keys-fix",
+    "sort-exports",
+    "json",
+    "no-secrets",
+    "simple-import-sort"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:json/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-secrets/no-secrets": "error",
+    "prettier/prettier": "error",
+    "semi": "off",
+    "@typescript-eslint/semi": ["error", "never"],
+
+    "no-tabs": ["error"],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        }
+      }
+    ],
+    "require-await": "error",
+    "sort-exports/sort-exports": ["error", { "sortDir": "asc" }],
+    "sort-keys": ["warn", "asc", { "caseSensitive": true, "natural": false, "minKeys": 2 }],
+    "sort-keys-fix/sort-keys-fix": "warn",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "quotes": "off",
+    "max-statements": ["error", 24],
+    "max-depth": ["error", 4],
+    "complexity": ["error", 16],
+    "max-lines": ["error", { "max": 256, "skipBlankLines": true }],
+    "max-nested-callbacks": ["error", 6],
+    "import/no-unresolved": ["warn", { "caseSensitive": false }],
+    "simple-import-sort/sort": "error"
+  }
+}

@@ -1,0 +1,8 @@
+node_modules
+build
+dist
+.DS_Store
+*.log
+public/contracts
+src/contracts
+typechain

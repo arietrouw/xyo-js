@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json.schemastore.org/package",
+  "name": "@xyo-network/xyo-js",
+  "private": true,
+  "scripts": {
+    "build": "yarn build:base-js &&  yarn build:base-node && yarn build:core-js",
+    "clean": "yarn clean:base-js &&  yarn clean:base-node && yarn clean:core-js",
+    "lint": "yarn lint:base-js &&  yarn lint:base-node && yarn lint:core-js",
+    "fix": "yarn fix:base-js &&  yarn fix:base-node && yarn fix:core-js",
+    "build:base-js": "yarn workspace @xyo-network/base-js build",
+    "lint:base-js": "yarn workspace @xyo-network/base-js lint",
+    "fix:base-js": "yarn workspace @xyo-network/base-js fix",
+    "start:base-js": "yarn workspace @xyo-network/base-js start",
+    "clean:base-js": "yarn workspace @xyo-network/base-js clean",
+    "build:base-node": "yarn workspace @xyo-network/base-node build",
+    "lint:base-node": "yarn workspace @xyo-network/base-node lint",
+    "fix:base-node": "yarn workspace @xyo-network/base-node fix",
+    "start:base-node": "yarn workspace @xyo-network/base-node start",
+    "clean:base-node": "yarn workspace @xyo-network/base-node clean",
+    "build:core-js": "yarn workspace @xyo-network/core-js build",
+    "lint:core-js": "yarn workspace @xyo-network/core-js lint",
+    "fix:core-js": "yarn workspace @xyo-network/core-js fix",
+    "start:core-js": "yarn workspace @xyo-network/core-js start",
+    "clean:core-js": "yarn workspace @xyo-network/core-js clean",
+    "reinstall": "yarn clean && yarn install"
+  },
+  "workspaces": [
+    "base-js",
+    "base-node",
+    "core-js",
+    "core-node",
+    "cli"
+  ],
+  "dependencies": {
+    "base-js": "*",
+    "base-node": "*",
+    "core-js": "*"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-no-secrets": "^0.6.8",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "eslint-plugin-sort-export-all": "^1.0.5",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "eslint-plugin-workspaces": "^0.6.2",
+    "prettier": "2.1.2",
+    "typescript": "^4.0.5"
+  }
+}
