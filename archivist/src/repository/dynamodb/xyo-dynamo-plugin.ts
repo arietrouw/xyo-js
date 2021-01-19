@@ -5,7 +5,7 @@ import {
   XyoBlocksByTime,
   XyoOriginBlockGetter,
   XyoOriginBlockRepository,
-} from '@xyo-network/sdk-core-nodejs'
+} from '@xyo-network/sdk-core-js'
 
 import { XyoArchivistDynamoRepository } from './xyo-dynamo-archivist-repository'
 

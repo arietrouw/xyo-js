@@ -1,4 +1,4 @@
-import { XyoCatalogFlags, XyoProcedureCatalog } from '@xyo-network/sdk-core-nodejs'
+import { XyoCatalogFlags, XyoProcedureCatalog } from '@xyo-network/sdk-core-js'
 
 export const receiveProcedureCatalog: XyoProcedureCatalog = {
   canDo: (buffer: Buffer): boolean => {

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable require-await */
-import { IXyoConfig, IXyoPlugin, IXyoPluginConfig, IXyoPluginWithConfig, XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { IXyoConfig, IXyoPlugin, IXyoPluginConfig, IXyoPluginWithConfig } from '@xyo-network/sdk-base-nodejs'
 import { execSync } from 'child_process'
 import fsExtra from 'fs-extra'
 import globalModules from 'global-modules'
@@ -19,7 +20,7 @@ export class XyoPackageManager extends XyoBase {
 
   constructor(pathToConfig: string) {
     super()
-    this.logVerbose(`pathToConfig: ${pathToConfig}`)
+    this.log.verbose(`pathToConfig: ${pathToConfig}`)
     this.pathToConfig = pathToConfig
     this.pluginTypes.npmRemote = npmRemotePluginResolver
     this.pluginTypes.npmLocal = npmLocalPluginResolver
@@ -55,7 +56,7 @@ export class XyoPackageManager extends XyoBase {
     }
 
     for (const plugin of plugins) {
-      this.logInfo(`Running with plugin: ${plugin.plugin.getName()}`)
+      this.log.info(`Running with plugin: ${plugin.plugin.getName()}`)
     }
 
     return plugins
@@ -84,7 +85,7 @@ export class XyoPackageManager extends XyoBase {
       return require(path) as IXyoConfig
     } catch (error) {
       console.log(error)
-      this.logError(`Can not find config at path: ${path}`)
+      this.log.error(`Can not find config at path: ${path}`)
       process.exit(1)
     }
   }

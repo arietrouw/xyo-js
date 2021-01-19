@@ -78,7 +78,7 @@ export class BoundWitnessTable extends Table {
           resolve()
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -107,7 +107,7 @@ export class BoundWitnessTable extends Table {
           resolve()
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -127,14 +127,14 @@ export class BoundWitnessTable extends Table {
         }
         this.dynamodb.deleteItem(params, (err: any, _data: DynamoDB.Types.DeleteItemOutput) => {
           if (err) {
-            this.logError(err)
+            this.log.error(err)
             reject(err)
           }
           this.cache.del(hash.toString())
           resolve()
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -158,7 +158,7 @@ export class BoundWitnessTable extends Table {
 
         this.dynamodb.scan(params, async (err: any, data: DynamoDB.Types.ScanOutput) => {
           if (err) {
-            this.logError(err)
+            this.log.error(err)
             reject(err)
           }
 
@@ -171,7 +171,7 @@ export class BoundWitnessTable extends Table {
                 this.cache.set(item.BlockHash.B.toString(), payload)
                 result.push(payload)
               } else {
-                this.logError(`Result with Missing BlockHash or Data: ${item}`)
+                this.log.error(`Result with Missing BlockHash or Data: ${item}`)
               }
             }
           }
@@ -186,7 +186,7 @@ export class BoundWitnessTable extends Table {
           resolve(result)
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })

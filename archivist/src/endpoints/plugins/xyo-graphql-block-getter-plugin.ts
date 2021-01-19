@@ -1,6 +1,6 @@
 /* eslint-disable require-await */
 import { IXyoPlugin, IXyoPluginDelegate, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
-import { XyoOriginBlockGetter } from '@xyo-network/sdk-core-nodejs'
+import { XyoOriginBlockGetter } from '@xyo-network/sdk-core-js'
 
 import { XyoGetBlockByHashResolver } from '../block-by-hash'
 import { XyoGetBlockList } from '../block-list'

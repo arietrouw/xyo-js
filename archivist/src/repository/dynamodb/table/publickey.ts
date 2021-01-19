@@ -73,7 +73,7 @@ export class PublicKeyTable extends Table {
           resolve()
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -138,7 +138,7 @@ export class PublicKeyTable extends Table {
 
         this.dynamodb.query(params, async (err: any, data: DynamoDB.Types.ScanOutput) => {
           if (err) {
-            this.logError(err)
+            this.log.error(err)
             reject(err)
           }
           const result = []
@@ -147,14 +147,14 @@ export class PublicKeyTable extends Table {
               if (item.PublicKey && item.PublicKey.B && item.BlockHash && item.BlockHash.B) {
                 result.push(item.BlockHash.B)
               } else {
-                this.logError(`Result with Missing PublicKey or BlockHash: ${item}`)
+                this.log.error(`Result with Missing PublicKey or BlockHash: ${item}`)
               }
             }
           }
           resolve({ items: result, total: await this.getRecordCount() })
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })

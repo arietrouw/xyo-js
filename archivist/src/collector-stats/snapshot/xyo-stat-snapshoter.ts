@@ -1,4 +1,4 @@
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import { readFileSync, writeFileSync } from 'fs'
 import os from 'os'
 
@@ -28,7 +28,7 @@ export class XyoStatSnap extends XyoBase {
     const currentHour = this.getEpochHour()
 
     if (currentHour > this.lastHour) {
-      this.logInfo(`Saving snapshot to hour: ${currentHour}`)
+      this.log.info(`Saving snapshot to hour: ${currentHour}`)
       const snapshot = this.stats.getAllTimeCollectedBoundWitnesses()
       this.saveRecord(snapshot)
       this.lastHour = currentHour

@@ -89,7 +89,7 @@ export class GeohashTable extends Table {
           resolve()
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -111,7 +111,7 @@ export class GeohashTable extends Table {
 
         this.dynamodb.query(params, async (err: any, data: DynamoDB.Types.ScanOutput) => {
           if (err) {
-            this.logError(err)
+            this.log.error(err)
             reject(err)
           }
 
@@ -121,14 +121,14 @@ export class GeohashTable extends Table {
               if (item.BlockHash && item.BlockHash.B) {
                 result.push(item.BlockHash.B)
               } else {
-                this.logError(`Result with Missing BlockHash: ${item}`)
+                this.log.error(`Result with Missing BlockHash: ${item}`)
               }
             }
           }
           resolve(result)
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })

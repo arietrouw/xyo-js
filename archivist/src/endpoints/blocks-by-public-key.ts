@@ -9,8 +9,8 @@
  * @Copyright: Copyright XY | The Findables Company
  */
 
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
-import { XyoBlockByPublicKeyRepository } from '@xyo-network/sdk-core-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { XyoBlockByPublicKeyRepository } from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 
 import { bufferToGraphQlBlock } from './buffer-to-graphql-block'
@@ -57,7 +57,7 @@ export class XyoGetBlocksByPublicKeyResolver extends XyoBase {
         keySet: [publicKey],
       }
     } catch (e) {
-      this.logError(`There was an error getting block-collection from public-key ${e}`)
+      this.log.error(`There was an error getting block-collection from public-key ${e}`)
       return {
         blocks: [],
         keySet: [publicKey],

@@ -1,4 +1,4 @@
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import { ApolloServer, gql, IResolvers } from 'apollo-server-express'
 import express from 'express'
 import fs from 'fs'
@@ -59,15 +59,15 @@ export class XyoGraphQLServer extends XyoBase {
     this.server.installSubscriptionHandlers(expressServer)
 
     expressServer.listen({ port: this.port })
-    this.logInfo(`Graphql server ready at url: http://localhost:${this.config.port}`)
+    this.log.info(`Graphql server ready at url: http://localhost:${this.config.port}`)
   }
 
   public async stop(): Promise<void> {
-    this.logInfo('Stopping Graphql server')
+    this.log.info('Stopping Graphql server')
     if (this.server) {
       await this.server.stop()
     }
-    this.logInfo('Stopped Graphql server')
+    this.log.info('Stopped Graphql server')
   }
 
   private initialize() {

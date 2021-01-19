@@ -1,4 +1,4 @@
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 
 export class XyoArchivistInfoResolver extends XyoBase {
   public static query = 'archivist: ArchivistInfo!'

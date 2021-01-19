@@ -1,4 +1,4 @@
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import net from 'net'
 
 import { XyoAdvertisePacket } from '../xyo-advertise-packet'

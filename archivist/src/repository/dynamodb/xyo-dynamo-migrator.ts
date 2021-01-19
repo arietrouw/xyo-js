@@ -1,5 +1,5 @@
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
-import { gpsResolver, XyoBoundWitness, XyoObjectSchema, XyoSha256 } from '@xyo-network/sdk-core-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { gpsResolver, XyoBoundWitness, XyoObjectSchema, XyoSha256 } from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 import { BulkIndexDocumentsParams, Client } from 'elasticsearch'
 import ngeohash from 'ngeohash'
@@ -67,7 +67,7 @@ class Migrator extends XyoBase {
     }
 
     // while (true) {
-    //   // this.logInfo(`Migrating 50 blocks starting at offset hash: ${offset && bs58.encode(offset)}`)
+    //   // this.log.info(`Migrating 50 blocks starting at offset hash: ${offset && bs58.encode(offset)}`)
     //   const blocks = await absorber.readBlocks(50)
 
     //   await Promise.all(blocks.map(async(block) => {
@@ -76,12 +76,12 @@ class Migrator extends XyoBase {
     //       const hash = bw.getHash(hasher).getAll().getContentsCopy()
     //       await this.db.addOriginBlock(hash, block)
     //     } catch (e) {
-    //       this.logError(`Error adding block ${e}`)
+    //       this.log.error(`Error adding block ${e}`)
     //     }
     //   }))
 
     //   if (blocks.length < 49) {
-    //     this.logInfo(`Finished migration ${blocks.length}`)
+    //     this.log.info(`Finished migration ${blocks.length}`)
     //     break
     //   }
     // }
@@ -94,7 +94,7 @@ const getGeohash = (boundWitness: XyoBoundWitness): string | undefined => {
       if (huerestic.getSchema().id === XyoObjectSchema.GPS.id) {
         const point = gpsResolver.resolve(huerestic.getAll().getContentsCopy()).value
         const geohash = ngeohash.encode(point.lat, point.lng)
-        // this.logInfo(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
+        // this.log.info(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
         return geohash
       }
     }

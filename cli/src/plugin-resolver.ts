@@ -1,9 +1,5 @@
-import {
-  IXyoBoundWitnessMutexDelegate,
-  IXyoGraphQlDelegate,
-  IXyoPluginWithConfig,
-  XyoBase,
-} from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { IXyoBoundWitnessMutexDelegate, IXyoGraphQlDelegate, IXyoPluginWithConfig } from '@xyo-network/sdk-base-nodejs'
 
 export class PluginResolver extends XyoBase {
   private resolvedPluginNames: { [key: string]: boolean } = {}
@@ -70,7 +66,7 @@ export class PluginResolver extends XyoBase {
         this.resolvedPluginCount++
       }
 
-      this.logDebug(`Initialized plugin: ${plugin.plugin.getName()}`)
+      this.log.debug(`Initialized plugin: ${plugin.plugin.getName()}`)
 
       this.resolvedPluginNames[plugin.plugin.getName()] = true
     }

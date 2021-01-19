@@ -9,7 +9,7 @@
  * @Copyright: Copyright XY | The Findables Company
  */
 
-import { XyoBoundWitness, XyoOriginBlockGetter, XyoSha256 } from '@xyo-network/sdk-core-nodejs'
+import { XyoBoundWitness, XyoOriginBlockGetter, XyoSha256 } from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 
 import { bufferToGraphQlBlock } from './buffer-to-graphql-block'

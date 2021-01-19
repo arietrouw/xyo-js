@@ -11,7 +11,7 @@
  */
 
 import { IXyoPlugin, IXyoPluginDelegate, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
-import { XyoBoundWitnessInserter, XyoOriginBlockRepository, XyoOriginState } from '@xyo-network/sdk-core-nodejs'
+import { XyoBoundWitnessInserter, XyoOriginBlockRepository, XyoOriginState } from '@xyo-network/sdk-core-js'
 
 import { XyoNode } from './archivist-collecter'
 import { IXyoArchivistConfig } from './archivist-collecter/@types'

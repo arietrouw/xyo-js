@@ -1,6 +1,6 @@
 /* eslint-disable require-await */
 import { IXyoPlugin, IXyoPluginDelegate, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
-import { XyoBlockByPublicKeyRepository } from '@xyo-network/sdk-core-nodejs'
+import { XyoBlockByPublicKeyRepository } from '@xyo-network/sdk-core-js'
 
 import { XyoGetBlocksByPublicKeyResolver } from '../blocks-by-public-key'
 

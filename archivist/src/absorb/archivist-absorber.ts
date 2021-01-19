@@ -1,4 +1,4 @@
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
@@ -33,7 +33,7 @@ export class ArchivistAbsorber extends XyoBase {
     }
 
     this.cursorHash = resultArray[resultArray.length - 1].signedHash
-    this.logInfo(`Read ${resultArray.length}, Absorber cursor hash set to: ${this.cursorHash}`)
+    this.log.info(`Read ${resultArray.length}, Absorber cursor hash set to: ${this.cursorHash}`)
 
     return resultArray.map((item) => {
       return Buffer.from(item.bytes, 'base64')

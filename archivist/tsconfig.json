@@ -6,5 +6,5 @@
     "baseUrl": "src"
   },
   "include": ["src/**/*.ts"],
-  "references": [{ "path": "../core-js" }, { "path": "../base-js" }]
+  "references": [{ "path": "../core-js" }, { "path": "../core-nodejs" }, { "path": "../base-js" }]
 }

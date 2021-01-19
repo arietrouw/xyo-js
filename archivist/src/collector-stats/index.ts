@@ -6,7 +6,7 @@ import {
   XyoObjectSchema,
   XyoSchema,
   XyoStructure,
-} from '@xyo-network/sdk-core-nodejs'
+} from '@xyo-network/sdk-core-js'
 
 import { XyoSnapResolver } from './snapshot/xyo-snapshot-resolver'
 import { XyoStatSnap } from './snapshot/xyo-stat-snapshoter'

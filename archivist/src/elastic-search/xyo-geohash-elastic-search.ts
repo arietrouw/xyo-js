@@ -1,5 +1,6 @@
 /* eslint-disable require-await */
-import { IXyoPlugin, IXyoPluginDelegate, XyoBase, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { IXyoPlugin, IXyoPluginDelegate, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
 import {
   gpsResolver,
   XyoBoundWitness,
@@ -9,7 +10,7 @@ import {
   XyoSchema,
   XyoSha256,
   XyoStructure,
-} from '@xyo-network/sdk-core-nodejs'
+} from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 import { Client } from 'elasticsearch'
 import ngeohash from 'ngeohash'
@@ -59,9 +60,9 @@ class XyoElasticGeohash extends XyoBase implements IXyoPlugin {
   }
 
   private async checkQueue() {
-    this.logInfo(`Elastic queue size: ${this.blockQueue.length / 2}`)
+    this.log.info(`Elastic queue size: ${this.blockQueue.length / 2}`)
     if (this.blockQueue.length > 500) {
-      this.logInfo(`Elastic inserting records: ${this.blockQueue.length / 2}`)
+      this.log.info(`Elastic inserting records: ${this.blockQueue.length / 2}`)
       await new Promise((resolve, reject) => {
         this.client?.bulk(
           {
@@ -70,14 +71,14 @@ class XyoElasticGeohash extends XyoBase implements IXyoPlugin {
           },
           (error) => {
             if (error) {
-              this.logError(`Elastic inserting records error: ${error}`)
+              this.log.error(`Elastic inserting records error: ${error}`)
 
               reject(error)
             }
 
-            this.logInfo('Elastic inserting records success')
+            this.log.info('Elastic inserting records success')
 
-            resolve()
+            resolve(true)
           }
         )
       })
@@ -138,7 +139,7 @@ class XyoElasticGeohash extends XyoBase implements IXyoPlugin {
         if (huerestic.getSchema().id === XyoObjectSchema.GPS.id) {
           const point = gpsResolver.resolve(huerestic.getAll().getContentsCopy()).value
           const geohash = ngeohash.encode(point.lat, point.lng)
-          // this.logInfo(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
+          // this.log.info(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
           return geohash
         }
       }

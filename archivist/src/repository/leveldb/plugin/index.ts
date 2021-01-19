@@ -1,5 +1,5 @@
 import { IXyoPlugin, IXyoPluginDelegate, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
-import { XyoOriginBlockGetter, XyoOriginBlockRepository } from '@xyo-network/sdk-core-nodejs'
+import { XyoOriginBlockGetter, XyoOriginBlockRepository } from '@xyo-network/sdk-core-js'
 
 import { XyoArchivistLevelRepository } from '../xyo-level-archivist-repository'
 

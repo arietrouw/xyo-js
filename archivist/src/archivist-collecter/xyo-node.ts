@@ -9,7 +9,8 @@
  * @Copyright: Copyright XY | The Findables Company
  */
 
-import { IXyoBoundWitnessMutexDelegate, XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { IXyoBoundWitnessMutexDelegate } from '@xyo-network/sdk-base-nodejs'
 import {
   addAllDefaults,
   XyoBoundWitnessInserter,
@@ -22,7 +23,7 @@ import {
   XyoServerTcpNetwork,
   XyoSha256,
   XyoZigZagBoundWitnessHander,
-} from '@xyo-network/sdk-core-nodejs'
+} from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 
 import { receiveProcedureCatalog } from './xyo-recive-catalog'
@@ -59,7 +60,7 @@ export class XyoNode extends XyoBase {
 
   private handlePipe = async (pipe: XyoNetworkPipe) => {
     this.network.stopListening()
-    this.logInfo('New archivist request!')
+    this.log.info('New archivist request!')
 
     if (!this.mutexHandler.acquireMutex()) {
       await pipe.close()
@@ -79,7 +80,7 @@ export class XyoNode extends XyoBase {
         await this.inserter.insert(boundWitness)
       }
     } catch (error) {
-      this.logWarning(`Error creating bound witness: ${error}`)
+      this.log.warn(`Error creating bound witness: ${error}`)
     }
 
     await pipe.close()
@@ -90,7 +91,7 @@ export class XyoNode extends XyoBase {
   public async start() {
     if (this.state.getIndexAsNumber() === 0) {
       const genesisBlock = await XyoGenesisBlockCreator.create(this.state.getSigners(), this.payloadProvider)
-      this.logInfo(
+      this.log.info(
         `Created genesis block with hash: ${bs58.encode(genesisBlock.getHash(this.hasher).getAll().getContentsCopy())}`
       )
       await this.inserter.insert(genesisBlock)

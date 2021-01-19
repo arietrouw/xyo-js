@@ -8,8 +8,8 @@
  * @License: All Rights Reserved
  * @Copyright: Copyright XY | The Findables Company
  */
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
-import { XyoOriginBlockGetter } from '@xyo-network/sdk-core-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { XyoOriginBlockGetter } from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 
 import { bufferToGraphQlBlock } from './buffer-to-graphql-block'

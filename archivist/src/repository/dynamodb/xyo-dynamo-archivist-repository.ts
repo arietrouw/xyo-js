@@ -11,7 +11,7 @@
  * Copyright 2017 - 2019 XY - The Persistent Company
  */
 
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import {
   addAllDefaults,
   gpsResolver,
@@ -23,7 +23,7 @@ import {
   XyoObjectSchema,
   XyoOriginBlockGetter,
   XyoOriginBlockRepository,
-} from '@xyo-network/sdk-core-nodejs'
+} from '@xyo-network/sdk-core-js'
 import crypto from 'crypto'
 import ngeohash from 'ngeohash'
 
@@ -109,7 +109,7 @@ export class XyoArchivistDynamoRepository
         if (huerestic.getSchema().id === XyoObjectSchema.GPS.id) {
           const point = gpsResolver.resolve(huerestic.getAll().getContentsCopy()).value
           const geohash = ngeohash.encode(point.lat, point.lng)
-          this.logInfo(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
+          this.log.info(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
           await this.geoTable.putItem(geohash, hash)
         }
       }
@@ -138,7 +138,7 @@ export class XyoArchivistDynamoRepository
       await this.timeTable.putItem(originBlock)
       return await this.boundWitnessTable.putItem(shortHash, originBlock)
     } catch (ex) {
-      this.logError(ex)
+      this.log.error(ex)
       throw ex
     }
   }
@@ -161,7 +161,7 @@ export class XyoArchivistDynamoRepository
         }
       }
     } catch (ex) {
-      this.logError(ex)
+      this.log.error(ex)
       throw ex
     }
   }

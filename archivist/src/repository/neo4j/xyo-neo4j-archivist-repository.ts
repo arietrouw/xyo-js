@@ -11,7 +11,7 @@
  * Copyright 2017 - 2019 XY - The Persistent Company
  */
 
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import { XyoOriginBlockGetter, XyoOriginBlockRepository } from '@xyo-network/sdk-core-js'
 
 export class XyoArchivistNeo4jRepository extends XyoBase implements XyoOriginBlockGetter, XyoOriginBlockRepository {

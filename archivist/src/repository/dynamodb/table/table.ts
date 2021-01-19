@@ -11,7 +11,7 @@
  * Copyright 2017 - 2019 XY - The Persistent Company
  */
 
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import { DynamoDB } from 'aws-sdk'
 
 export class Table extends XyoBase {
@@ -33,10 +33,10 @@ export class Table extends XyoBase {
 
   public async getRecordCount() {
     const description = await this.readTableDescription()
-    return description.ItemCount
+    return description?.ItemCount
   }
 
-  protected async readTableDescription(): Promise<DynamoDB.Types.TableDescription> {
+  protected async readTableDescription(): Promise<DynamoDB.Types.TableDescription | undefined> {
     return new Promise((resolve, reject) => {
       try {
         this.dynamodb.describeTable(
@@ -50,7 +50,7 @@ export class Table extends XyoBase {
           }
         )
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -64,7 +64,7 @@ export class Table extends XyoBase {
             this.createTableInput,
             (createErr: any, tableData: DynamoDB.Types.CreateTableOutput) => {
               if (createErr) {
-                this.logError(createErr)
+                this.log.error(createErr)
                 reject(createErr)
                 return
               }
@@ -75,7 +75,7 @@ export class Table extends XyoBase {
           reject('createTableInput Required')
         }
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -104,7 +104,7 @@ export class Table extends XyoBase {
           }
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })

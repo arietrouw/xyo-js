@@ -67,7 +67,8 @@
     "import/namespace": ["warn"],
     "import/no-cycle": ["warn"],
     "import/no-useless-path-segments": ["warn"],
-    "simple-import-sort/sort": ["error"],
+    "simple-import-sort/imports": ["error"],
+    "simple-import-sort/exports": ["error"],
     "workspaces/no-relative-imports": ["off"],
     "workspaces/no-absolute-imports": ["off"]
   }

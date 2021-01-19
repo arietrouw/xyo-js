@@ -1,5 +1,6 @@
 /* eslint-disable require-await */
-import { IXyoPlugin, IXyoPluginDelegate, XyoBase, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { IXyoPlugin, IXyoPluginDelegate, XyoPluginProviders } from '@xyo-network/sdk-base-nodejs'
 import {
   gpsResolver,
   XyoBoundWitness,
@@ -9,7 +10,7 @@ import {
   XyoSchema,
   XyoSha256,
   XyoStructure,
-} from '@xyo-network/sdk-core-nodejs'
+} from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 import http from 'http'
 import ngeohash from 'ngeohash'
@@ -134,7 +135,7 @@ class XyoWebsocketNotify extends XyoBase implements IXyoPlugin {
         if (huerestic.getSchema().id === XyoObjectSchema.GPS.id) {
           const point = gpsResolver.resolve(huerestic.getAll().getContentsCopy()).value
           const geohash = ngeohash.encode(point.lat, point.lng)
-          // this.logInfo(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
+          // this.log.info(`Adding geohash: ${geohash} at ${point.lat}, ${point.lng}`)
           return geohash
         }
       }

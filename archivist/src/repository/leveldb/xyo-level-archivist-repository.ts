@@ -11,7 +11,7 @@
  * Copyright 2017 - 2019 XY - The Persistent Company
  */
 
-import { XyoBase } from '@xyo-network/sdk-base-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
 import { XyoIterableStructure, XyoOriginBlockGetter, XyoOriginBlockRepository } from '@xyo-network/sdk-core-js'
 import { AbstractIteratorOptions } from 'abstract-leveldown'
 import leveldown from 'leveldown'

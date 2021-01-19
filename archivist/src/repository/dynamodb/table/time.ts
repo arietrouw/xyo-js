@@ -64,7 +64,7 @@ export class TimeTable extends Table {
           resolve()
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })
@@ -94,7 +94,7 @@ export class TimeTable extends Table {
 
         this.dynamodb.query(params, async (err: any, data: DynamoDB.Types.ScanOutput) => {
           if (err) {
-            this.logError(err)
+            this.log.error(err)
             reject(err)
           }
 
@@ -106,14 +106,14 @@ export class TimeTable extends Table {
                 result.push(item.Bytes.B)
                 lastTime = parseInt(item.Time.N, 10)
               } else {
-                this.logError(`Result with Missing Bytes: ${item}`)
+                this.log.error(`Result with Missing Bytes: ${item}`)
               }
             }
           }
           resolve({ lastTime, results: result })
         })
       } catch (ex) {
-        this.logError(ex)
+        this.log.error(ex)
         reject(ex)
       }
     })

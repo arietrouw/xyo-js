@@ -1,5 +1,5 @@
 import { IXyoPlugin, IXyoPluginDelegate } from '@xyo-network/sdk-base-nodejs'
-import { XyoOriginState } from '@xyo-network/sdk-core-nodejs'
+import { XyoOriginState } from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 import dotenvExpand from 'dotenv-expand'
 

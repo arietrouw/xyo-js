@@ -11,8 +11,9 @@
  * Copyright 2017 - 2019 XY - The Persistent Company
  */
 
-import { IXyoPluginWithConfig, XyoBase } from '@xyo-network/sdk-base-nodejs'
-import commander from 'commander'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { IXyoPluginWithConfig } from '@xyo-network/sdk-base-nodejs'
+import { Command } from 'commander'
 import fs from 'fs'
 import http from 'http'
 import https from 'https'
@@ -56,38 +57,39 @@ const run = async (manager: XyoPackageManager) => {
 }
 
 export class App extends XyoBase {
+  public program: Command = new Command()
   public async main() {
-    commander.option('-i, --install', 'installs the plugins')
-    commander.option('-r, --run', 'runs node')
-    commander.option('-f, --fetch <string>', 'fetch from url')
-    commander.parse(process.argv)
+    this.program.option('-i, --install', 'installs the plugins')
+    this.program.option('-r, --run', 'runs node')
+    this.program.option('-f, --fetch <string>', 'fetch from url')
+    this.program.parse(process.argv)
 
-    const manager = new XyoPackageManager(commander.config || defaultConfigPath)
+    const manager = new XyoPackageManager(this.program.config || defaultConfigPath)
 
     await manager.makeConfigIfNotExist()
 
-    this.logInfo(`Using config at path: ${commander.config || defaultConfigPath}`)
+    this.log.info(`Using config at path: ${this.program.config || defaultConfigPath}`)
 
-    if (commander.install) {
+    if (this.program.install) {
       manager.install()
       return
     }
 
-    if (commander.run) {
+    if (this.program.run) {
       return await run(manager)
     }
 
-    if (commander.fetch) {
+    if (this.program.fetch) {
       this.fetch()
       return
     }
 
-    commander.outputHelp()
+    this.program.outputHelp()
   }
 
   private async fetch() {
-    console.log(`Downloading... ${commander.fetch}`)
-    const url = commander.fetch as string
+    console.log(`Downloading... ${this.program.fetch}`)
+    const url = this.program.fetch as string
 
     const handler = (response: any) => {
       const data = new Transform()
@@ -97,8 +99,8 @@ export class App extends XyoBase {
       })
 
       response.on('end', () => {
-        fs.writeFileSync(commander.config || defaultConfigPath, data.read())
-        this.logInfo(`Saved to ${commander.config || defaultConfigPath}`)
+        fs.writeFileSync(this.program.config || defaultConfigPath, data.read())
+        this.log.info(`Saved to ${this.program.config || defaultConfigPath}`)
       })
     }
 

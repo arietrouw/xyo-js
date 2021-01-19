@@ -1,5 +1,6 @@
-import { IXyoPlugin, IXyoPluginDelegate, XyoBase } from '@xyo-network/sdk-base-nodejs'
-import { XyoFileOriginStateRepository, XyoOriginState, XyoSecp2556k1 } from '@xyo-network/sdk-core-nodejs'
+import { XyoBase } from '@xyo-network/sdk-base-js'
+import { IXyoPlugin, IXyoPluginDelegate } from '@xyo-network/sdk-base-nodejs'
+import { XyoFileOriginStateRepository, XyoOriginState, XyoSecp2556k1 } from '@xyo-network/sdk-core-js'
 import bs58 from 'bs58'
 import fsExtra from 'fs-extra'
 import os from 'os'
@@ -42,8 +43,8 @@ export class OriginStatePlugin extends XyoBase implements IXyoPlugin {
 
     await repository.commit()
 
-    this.logInfo(`Using state file at path: ${path}`)
-    this.logInfo(
+    this.log.info(`Using state file at path: ${path}`)
+    this.log.info(
       `Using public key:  \u001b[35m${bs58.encode(
         this.ORIGIN_STATE.getSigners()[0].getPublicKey().getAll().getContentsCopy()
       )}\u001b[0m`
